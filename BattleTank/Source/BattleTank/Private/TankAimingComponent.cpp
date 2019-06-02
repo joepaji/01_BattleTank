@@ -6,7 +6,7 @@
 // Sets default values for this component's properties
 UTankAimingComponent::UTankAimingComponent()
 {
-	PrimaryComponentTick.bCanEverTick = true;
+	PrimaryComponentTick.bCanEverTick = true;  // TODO Should this really tick? Tick function is commented down below.
 }
 
 void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
@@ -41,7 +41,14 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
 		MoveBarrelTowards(AimDirection);
-		
+
+		auto Time = GetWorld()->GetTimeSeconds();
+		UE_LOG(LogTemp, Warning, TEXT("%f - Aim Solution Found"), Time);
+	}
+	else
+	{
+		auto Time = GetWorld()->GetTimeSeconds();
+		UE_LOG(LogTemp, Warning, TEXT("%f - No Aim Solution Found"), Time);
 	}
 
 
@@ -55,3 +62,15 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	auto DeltaRotator = AimAsRotator - BarrelRotator;
 	Barrel->Elevate(5); //TODO remove magic number
 }
+
+// Called every frame
+// void UTankAimingComponent::TickComponent
+// (
+// 	float DeltaTime,
+// 	enum ELevelTick TickType,
+// 	FActorComponentTickFunction* ThisTickFunction
+// )
+// {
+// 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+// 
+// }
