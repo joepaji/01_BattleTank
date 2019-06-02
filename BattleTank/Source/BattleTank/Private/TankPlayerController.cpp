@@ -1,13 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
+#include "Tank.h"
+//#include "BattleTank.h"  NOT SURE IF THIS IS NEEDED YET
 #include "TankPlayerController.h"
 
 #define OUT
 
-// Tick
-	//Super
-	//AimTowardsCrosshair()
 
 void ATankPlayerController::Tick(float DeltaTime)
 {

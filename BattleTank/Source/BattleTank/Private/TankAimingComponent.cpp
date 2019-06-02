@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "Kismet/GameplayStatics.h"
 #include "TankBarrel.h"
 #include "TankAimingComponent.h"
 
@@ -31,8 +32,12 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		OutLaunchVelocity,
 		StartLocation,
 		HitLocation,
-		LaunchSpeed,
-		ESuggestProjVelocityTraceOption::DoNotTrace);
+		LaunchSpeed, 
+		false, 
+		0.f,
+		0.f,
+		ESuggestProjVelocityTraceOption::DoNotTrace
+		);
 
 
 	//Calculate the OutLaunchVelocity
