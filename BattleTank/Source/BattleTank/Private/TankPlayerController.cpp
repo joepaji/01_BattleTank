@@ -67,9 +67,6 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocation) const
 	FVector LookDirection;
 	if (GetLookDirection(ScreenLocation, OUT LookDirection))
 	{
-		//UE_LOG(LogTemp, Warning, TEXT("Look Direction: %s"), *LookDirection.ToString())
-			// Line-trace along that look direction, and see what we hit (up to max range)
-
 			GetLookVectorHitLocation(LookDirection, OUT HitLocation);
 	}
 		

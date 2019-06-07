@@ -10,16 +10,6 @@ void ATankAIController::BeginPlay()
 
 	/*
 	auto ControlledTank = GetControlledTank();
-
-	if (ControlledTank)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Possessed AI Tank Name: %s"), *(ControlledTank->GetName()));
-	}
-
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("No Possessed AI Tanks Found!"));
-	}
 	*/
 
 	auto PlayerTank = GetPlayerTank();
