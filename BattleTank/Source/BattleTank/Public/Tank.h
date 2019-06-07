@@ -8,6 +8,7 @@
 
 ///Forward Declarations
 class UTankbarrel; 
+class UTankTurret;
 class UTankAimingComponent;
 
 UCLASS()
