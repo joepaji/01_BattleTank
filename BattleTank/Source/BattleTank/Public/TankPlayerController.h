@@ -7,6 +7,7 @@
 #include "GameFramework/PlayerController.h"
 #include "TankPlayerController.generated.h"  ///Must be last include
 
+
 /// Forward Declarations
 class ATank;
 
@@ -46,4 +47,5 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 		float LineTraceRange = 1000000.f;
 
+	
 };
