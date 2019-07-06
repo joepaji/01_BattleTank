@@ -17,11 +17,13 @@ ATank::ATank()
 
 void ATank::AimAt(FVector HitLocation)
 {
+	if (!TankAimingComponent) { return; }
 	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }
 
 void ATank::Fire()
 {
+	if (!Barrel) { return; }
 	auto ProjectileSpawnLocation = Barrel->GetSocketLocation("Projectile");
 	auto ProjectileSpawnRotation = Barrel->GetSocketRotation("Projectile");
 
