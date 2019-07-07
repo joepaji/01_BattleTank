@@ -1,16 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankAimingComponent.h"
-#include "GameFramework/Actor.h"
 #include "TankAIController.h"
 
 void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
-
-	/*
-	auto ControlledTank = GetControlledTank();
-	*/
 }
 
 void ATankAIController::Tick(float DeltaTime)
@@ -25,5 +20,5 @@ void ATankAIController::Tick(float DeltaTime)
 
 	MoveToActor(PlayerTank, AcceptanceRadius);
 	AimingComponent->AimAt(PlayerTank->GetTargetLocation());
-	//ControlledTank->Fire();  Fix firing
+	AimingComponent->Fire();  
 }

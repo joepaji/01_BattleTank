@@ -26,7 +26,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Input")
 	void IntendTurnRight(float Throw);
 	
-	
 protected:
 
 	UTracks* LeftTrack = nullptr;
