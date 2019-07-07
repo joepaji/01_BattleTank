@@ -41,6 +41,8 @@ protected:
 	EFiringState FiringState = EFiringState::Reloading;
 
 private:
+	void BeginPlay() override;
+	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 	void MoveBarrelTowards(FVector AimDirection);
