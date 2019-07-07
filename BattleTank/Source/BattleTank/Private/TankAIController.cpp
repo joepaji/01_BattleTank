@@ -1,6 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Tank.h"
+#include "TankAimingComponent.h"
 #include "GameFramework/Actor.h"
 #include "TankAIController.h"
 
@@ -17,20 +17,13 @@ void ATankAIController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	auto ControlledTank = Cast<ATank>(GetPawn());
-	auto PlayerTank = Cast<ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
-	
-	if (PlayerTank)
-	{
-		MoveToActor(PlayerTank, AcceptanceRadius);
-		ControlledTank->AimAt(PlayerTank->GetTargetLocation());
-		ControlledTank->Fire();  //TODO LIMIT FIRING RATE
-	}
-	
+	auto ControlledTank = GetPawn();
+	auto PlayerTank = GetWorld()->GetFirstPlayerController()->GetPawn();
+	auto AimingComponent = ControlledTank->FindComponentByClass<UTankAimingComponent>();
 
-	else
-	{
-		UE_LOG(LogTemp, Error, TEXT("No AI tank found!"));
-	}
+	if (!ensure(PlayerTank && ControlledTank && AimingComponent)) { return; }
+
+	MoveToActor(PlayerTank, AcceptanceRadius);
+	AimingComponent->AimAt(PlayerTank->GetTargetLocation());
+	//ControlledTank->Fire();  Fix firing
 }
-
